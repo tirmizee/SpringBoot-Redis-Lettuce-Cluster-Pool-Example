@@ -110,7 +110,19 @@ spring:
 
 ````
 
-### note
+### noted
+
+```java
+
+    private static final boolean COMMONS_POOL2_AVAILABLE = ClassUtils.isPresent("org.apache.commons.pool2.ObjectPool",
+			RedisConnectionConfiguration.class.getClassLoader());
+
+    protected boolean isPoolEnabled(Pool pool) {
+        Boolean enabled = pool.getEnabled();
+        return (enabled != null) ? enabled : COMMONS_POOL2_AVAILABLE;
+    }
+
+```
 
     - cluster supports for redis v.3 or greater.
     - pool enabled automatically if "commons-pool2" is available.
