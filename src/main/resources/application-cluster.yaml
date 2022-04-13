@@ -1,0 +1,14 @@
+spring:
+  redis:
+    cluster:
+      nodes:
+        - 0.0.0.0:8000
+        - 0.0.0.0:8001
+        - 0.0.0.0:8002
+      max-redirects: 3
+    password: myredis
+    lettuce:
+      pool:
+        max-idle: 16
+        max-active: 32
+        min-idle: 8
