@@ -112,8 +112,8 @@ spring:
 
 ### note
 
-    - cluster supports for redis v.3 or greater
-    - enabled automatically if "commons-pool2" is available.
+    - cluster supports for redis v.3 or greater.
+    - pool enabled automatically if "commons-pool2" is available.
 
 ### Reference
 
