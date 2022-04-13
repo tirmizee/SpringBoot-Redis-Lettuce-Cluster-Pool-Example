@@ -30,6 +30,9 @@ services:
       - '8000:8000'
       - '8001:8001'
       - '8002:8002'
+      - '8003:8003'
+      - '8004:8004'
+      - '8005:8005'
     command: redis-server /usr/local/etc/redis/redis.conf
     volumes:
       - ./redis-cluster/8000/redis.conf:/usr/local/etc/redis/redis.conf
@@ -48,6 +51,27 @@ services:
     volumes:
       - ./redis-cluster/8002/redis.conf:/usr/local/etc/redis/redis.conf
 
+  redis-node-3:
+    image: redis:alpine
+    command: redis-server /usr/local/etc/redis/redis.conf
+    network_mode: "service:redis-node-0"
+    volumes:
+      - ./redis-cluster/8003/redis.conf:/usr/local/etc/redis/redis.conf
+
+  redis-node-4:
+    image: redis:alpine
+    command: redis-server /usr/local/etc/redis/redis.conf
+    network_mode: "service:redis-node-0"
+    volumes:
+      - ./redis-cluster/8004/redis.conf:/usr/local/etc/redis/redis.conf
+
+  redis-node-5:
+    image: redis:alpine
+    command: redis-server /usr/local/etc/redis/redis.conf
+    network_mode: "service:redis-node-0"
+    volumes:
+      - ./redis-cluster/8005/redis.conf:/usr/local/etc/redis/redis.conf
+
 ```
 
 ### application.yaml
@@ -61,7 +85,10 @@ spring:
         - 0.0.0.0:8000
         - 0.0.0.0:8001
         - 0.0.0.0:8002
-      max-redirects: 3
+        - 0.0.0.0:8003
+        - 0.0.0.0:8004
+        - 0.0.0.0:8005
+    #      max-redirects: 3
     password: myredis
     lettuce:
       pool:
