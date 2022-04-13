@@ -1,6 +1,6 @@
 # SpringBoot-Redis-Lettuce-Cluster-Pool-Example
 
-
+Example of Redis Cluster configuration for Spring Boot.
 
 ### dependencies
 
