@@ -1,4 +1,4 @@
-# SpringBoot-Redis-Lettuce-Cluster-Example
+# SpringBoot-Redis-Lettuce-Cluster-Pool-Example
 
 ### run redis cluster with docker 
 
@@ -15,7 +15,6 @@
     # check cluster nodes
     redis-cli -c -p 8000 -a myredis cluster nodes
 
-redis-cli -p 6379 -a password123
 
 ### docker-compose.yaml
 
