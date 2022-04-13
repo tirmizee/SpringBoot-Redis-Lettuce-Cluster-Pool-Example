@@ -1,5 +1,13 @@
 # SpringBoot-Redis-Lettuce-Cluster-Pool-Example
 
+
+
+### dependencies
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	implementation 'io.lettuce:lettuce-core'
+	implementation 'org.apache.commons:commons-pool2:2.11.1'
+
 ### run redis cluster with docker 
 
     # run docker-compose
@@ -101,6 +109,11 @@ spring:
         min-idle: 8
 
 ````
+
+### note
+
+    - cluster supports for redis v.3 or greater
+    - enabled automatically if "commons-pool2" is available.
 
 ### Reference
 
