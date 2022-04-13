@@ -2,11 +2,19 @@
 
 ### run redis cluster with docker 
 
+    # run docker-compose
     docker compose -f docker-compose-redis-cluster.yaml up -d
 
+    # exec contrainer    
     docker exec -it redis-cluster sh
     
-    redis-cli --cluster create 127.0.0.1:8000  127.0.0.1:8001  127.0.0.1:8002 -a myredis
+    # run redis-cli commands for crate the cluster
+    echo "yes" > temp
+    redis-cli --cluster create 127.0.0.1:8000  127.0.0.1:8001  127.0.0.1:8002 127.0.0.1:8003 127.0.0.1:8004 127.0.0.1:8005 -a myredis --cluster-replicas 1 < temp
+
+    # check cluster nodes
+    redis-cli -c -p 8000 -a myredis cluster nodes
+
 
 ### docker-compose.yaml
 
@@ -62,4 +70,9 @@ spring:
         min-idle: 8
 
 ````
+
+### Reference
+
+- https://alex.dzyoba.com/blog/redis-cluster/
+- https://redis.io/docs/manual/scaling/
 

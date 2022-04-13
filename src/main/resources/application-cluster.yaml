@@ -5,7 +5,10 @@ spring:
         - 0.0.0.0:8000
         - 0.0.0.0:8001
         - 0.0.0.0:8002
-      max-redirects: 3
+        - 0.0.0.0:8003
+        - 0.0.0.0:8004
+        - 0.0.0.0:8005
+#      max-redirects: 3
     password: myredis
     lettuce:
       pool:
