@@ -79,6 +79,9 @@ services:
 ````yaml
 
 spring:
+  #  autoconfigure.exclude:
+  #    - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+  #    - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
   redis:
     cluster:
       nodes:
@@ -92,6 +95,7 @@ spring:
     password: myredis
     lettuce:
       pool:
+        enabled: true
         max-idle: 16
         max-active: 32
         min-idle: 8
