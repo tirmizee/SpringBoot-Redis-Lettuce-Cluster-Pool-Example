@@ -2,8 +2,7 @@ version: '3.0'
 services:
   redis:
     image: bitnami/redis:6.2.6
-    ports:
-      - '6379:6379'
+    container_name: redis-single
     environment:
       - REDIS_PASSWORD=password123
 #      - REDIS_PORT_NUMBER=7000       # default 6379
